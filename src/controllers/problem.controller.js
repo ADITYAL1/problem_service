@@ -6,7 +6,9 @@ function pingcheck(req ,res){
 }
 
 function addProblem(req,res){
-
+return res.status(501).json({
+    message:"Not implemented",ad
+})
 }
 function getproblem(req,res){
 return res.json({
@@ -14,13 +16,19 @@ return res.json({
 })
 }
 function getproblems(req,res){
-
+    return res.status(501).json({
+        message:"Not implemented"
+    })
 }
 function deleteproblem(req , res){
-
+    return res.status(501).json({
+        message:"Not implemented"
+    })
 }
 function updateproblem(req,res){
-
+    return res.status(501).json({
+        message:"Not implemented"
+    })
 }
 module.exports={
     addProblem,
