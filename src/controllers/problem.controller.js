@@ -1,3 +1,5 @@
+const BadRequest = require("../error/BadRequest");
+const NotImplemented = require("../error/NotImplemented.error")
 
 function pingcheck(req ,res){
     return res.json({
@@ -5,20 +7,26 @@ function pingcheck(req ,res){
     })
 }
 
-function addProblem(req,res){
-return res.status(501).json({
-    message:"Not implemented",ad
-})
+function addProblem(req,res,next){
+try {
+    throw new NotImplemented("addProblem")
+}catch(err){
+    next(err);
+}
 }
 function getproblem(req,res){
-return res.json({
-    mesg:'you are inside get problems'
-})
+    try {
+        throw new BadRequest("not accesible")
+    }catch(err){
+        next(err);
+    }
 }
-function getproblems(req,res){
-    return res.status(501).json({
-        message:"Not implemented"
-    })
+function getproblems(req,res,next){
+    try {
+        throw new BadRequest("not accesible")
+    }catch(err){
+        next(err);
+    }
 }
 function deleteproblem(req , res){
     return res.status(501).json({
@@ -31,10 +39,12 @@ function updateproblem(req,res){
     })
 }
 module.exports={
+
     addProblem,
     getproblem,
     getproblems,
     deleteproblem,
     updateproblem,
     pingcheck
+    
 }
