@@ -3,7 +3,7 @@ const BaseError = require("./BaseError");
 
 class InernalServerError extends BaseError{
     constructor(details){
-        super("InternalServerError", StatusCodes.INTERNAL_SERVER_ERROR,"Server Error",detail)
+        super("InternalServerError", StatusCodes.INTERNAL_SERVER_ERROR,"Server Error",details)
     }
 }
 module.exports=InernalServerError;

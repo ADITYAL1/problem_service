@@ -3,7 +3,7 @@ const BaseError = require("./BaseError");
 
 class BadRequest extends BaseError{
     constructor(PropertyName){
-       super("badRequest", StatusCodes.BAD_REQUEST, `invalid structure for ${PropertyName} provided`,)
+       super("badRequest", StatusCodes.BAD_REQUEST, `invalid structure for ${PropertyName} provided`,{})
     }
 
 }
