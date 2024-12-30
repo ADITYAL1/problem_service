@@ -25,6 +25,6 @@ app.use(errorhandler);
 app.listen(PORT, async()=>{
     console.log('server started at :',PORT);
     await connectToDb();
-    console.log("successful");
+    console.log("successful connected to db");
    
 })
