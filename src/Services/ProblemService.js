@@ -8,17 +8,37 @@ class Problemservice {
 
     async createProblem(problemdata){
      try{
-        console.log(problemdata);
+       
         problemdata.description=SanitizeMark(problemdata.description)
-        console.log('check completed')
-      const problem= await this.problemRepository.CreateProblem(problemdata);
-          console.log(problem);
+      
+        const problem= await this.problemRepository.CreateProblem(problemdata);
+         
       return problem;
-     }catch(err){
-    console.log(err);
-    throw err;
+     }
+     catch(err)
+     {
+     
+       throw err;
      }
     }
-      
+      async getallproblems(){
+        try {
+          const problems =await this.problemRepository.GetAllProblems();
+          return problems;
+        } catch (error) {
+          throw error;
+        }
+      }
+
+      async getproblems(id){
+        try {
+         
+          const problem =await this.problemRepository.GetProblem(id);
+        
+          return problem;
+        } catch (error) {
+          throw error;
+        }
+      } 
 }
 module.exports=Problemservice;

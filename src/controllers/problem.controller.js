@@ -27,16 +27,28 @@ try {
     next(err);
 }
 }
-function getproblem(req,res){
+ async function getproblem(req,res,next){
     try {
-        throw new BadRequest("not accesible")
+       const response = await problemService.getproblems(req.params.id);
+       return   res.status(StatusCodes.OK).json({
+        success:true,
+        message:"successfully fetched your problem",
+        error:{},
+        data:response,
+    })
     }catch(err){
         next(err);
     }
 }
-function getproblems(req,res,next){
+ async function getproblems(req,res,next){
     try {
-        throw new BadRequest("not accesible")
+        const response=await problemService.getallproblems();
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"successfully fetched all problems",
+            error:{},
+            data:response,
+        })
     }catch(err){
         next(err);
     }
